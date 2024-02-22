@@ -8,19 +8,19 @@ function useFetch(url){
 
     const fetchData = async () => {
 
-    try {
-      const {data: responseData} = await axios.get(url);
-      setData(responseData);
-      setLoading(false);
-    }
-    catch (err){
-      setError(err.message);
-      setLoading(false)
+      try {
+        const {data: responseData} = await axios.get(url);
+        setData(responseData);
+        setLoading(false);
+      }
+      catch (err){
+        setError(err.message);
+        setLoading(false)
 
-    }
+      }
   }
 
-  useEffect(() = {
+  useEffect(() => {
     fetchData();
   }, []); // Bu fonksiyon call edildiğinde çalışacak
 

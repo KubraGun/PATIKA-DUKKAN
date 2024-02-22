@@ -11,7 +11,7 @@ import Loading from '../../components/Loading/Loading';
 import Error from '../../components/Error/Error';
 
 const Detail = ({route}) => {
-const {loading, error, data} = useFetch('${Config.API_URL}/${id}');
+const {loading, error, data} = useFetch('${Config.API_PRODUCT_URL}/${id}');
 
 
   if(loading){

@@ -44,7 +44,7 @@ const Products = ({navigation}) => {
   }*/
 
 
-  const {loading, data, error} = useFetch(Config.API_URL); // bir key kullanmadığımız müddetçe return ettiğimiz sırada geri döner
+  const {loading, data, error} = useFetch(Config.API_PRODUCT_URL); // bir key kullanmadığımız müddetçe return ettiğimiz sırada geri döner
 
   const handleProductSelect = (id) => {
     navigation.navigate('DetailPage', {id});
