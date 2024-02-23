@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, Text, FlatList, ActivityIndicator} from 'react-native';
+import {SafeAreaView, Text, FlatList, ActivityIndicator, Button} from 'react-native';
 import Config from 'react-native-config';
 import axios from 'axios';
 
@@ -42,7 +42,9 @@ const Products = ({navigation}) => {
 
     }
   }*/
+ // const dispatch = useDispatch();
 
+  const user = useSelector(s => s.user) // kullanıcı bilgilerini tutar
 
   const {loading, data, error} = useFetch(Config.API_PRODUCT_URL); // bir key kullanmadığımız müddetçe return ettiğimiz sırada geri döner
 
@@ -52,9 +54,9 @@ const Products = ({navigation}) => {
 
   //onPress eventinde parametre gondermeden işlem yaptıracaksak yalnızca fonksiyonun adını göndermemiz yeterliydi.
   //ancak parametre göndermemiz gerekiyorsa arrow func. şeklinde oluşturmalıyız
-    const renderProduct = ({item}) => <ProductCard product={item} onSelect={() => handleProductSelect(item.id)}/>
+  const renderProduct = ({item}) => <ProductCard product={item} onSelect={() => handleProductSelect(item.id)}/>
 
-  if(loading){
+  if(loading){ 
     return <Loading />;
     
   }
@@ -66,6 +68,8 @@ const Products = ({navigation}) => {
   }
   return(
       <SafeAreaView>
+        //<Button  title='LogOut' onPress={() => dispatch({type: 'SET_USER', payload: {user: null}})}/>
+        <Text>Hello {user.username} </Text>
         <FlatList 
                 data={data}
                 renderItem={renderProduct}
